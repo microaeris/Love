@@ -1,0 +1,61 @@
+body {
+/*    background-image: url('images/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;*/
+    margin: 0;
+}
+
+.bg {
+    object-fit: cover;
+    max-width: 1136px;
+    max-height: 640px;
+}
+
+#position {
+    position: absolute;
+    top: 180px;
+    left: 470px;
+}
+
+.win, .dead {
+    display: none;
+}
+
+.dead {
+    padding: 60px 0px;
+}
+
+#menuBg {
+    position: absolute;
+    top: 450px;
+    left: 290px;
+}
+
+#hand, #yes, #no {
+    z-index: 2;
+}
+
+#no {
+    position: absolute;
+    left: 650px;
+    top: 530px;
+}
+
+#yes {
+    position: absolute;
+    left: 490px;
+    top: 530px;
+}
+
+#hand {
+    position: absolute;
+    top: 530px;
+    left: 575px;
+    /*415px for Yes*/
+}
+
+.player {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
