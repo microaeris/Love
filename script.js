@@ -1,48 +1,8 @@
-var audio = new Audio('FF6finger.wav');
-var playerVictory;
-var playerGameOver;
-
-// Loads the IFrame Player API code asynchronously.
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-// This function creates an <iframe> (and YouTube player)
-// after the API code downloads.
-function onYouTubeIframeAPIReady() {
-  // Victory
-  playerVictory = new YT.Player('playerVictory', {
-    loop: true,
-    videoId: 'ZMovw9o9YCk',
-    events: {
-      'onReady': function(event) {
-        //event.target.playVideo();
-      },
-      'onStateChange': function(event) {
-        if (event.data == YT.PlayerState.PLAYING) {
-          // Video is playing
-        }
-      }
-    }
-  });
-
-  // Game over
-  playerGameOver = new YT.Player('playerGameOver', {
-      videoId: 'Y6Y1XtPoDv8',
-      loop: true,
-      events: {
-          onReady: function (e) {
-              // 'video is loaded';
-          },
-          onStateChange: function (event) {
-              if (event.data === 1) {
-                  // 'video started playing';
-              }
-          }
-      }
-  });
-}
+var audio         = new Audio('FF6finger.wav');
+var victorySong   = new Audio('Victory_Fanfare.mp3');
+var gameOverSong  = new Audio('Game_Over.mp3');
+victorySong.loop  = true;
+gameOverSong.loop = true;
 
 $('#yes').click(function(){
     // to play finger sound
@@ -56,8 +16,8 @@ $('#yes').click(function(){
     $('.stand').hide();
     $('.dead').hide();
 
-    playerVictory.playVideo();
-    playerGameOver.pauseVideo();
+    victorySong.play();
+    gameOverSong.pause();
 });
 
 $('#no').click(function(){
@@ -72,8 +32,8 @@ $('#no').click(function(){
     $('.stand').hide();
     $('.win').hide();
 
-    playerVictory.pauseVideo();
-    playerGameOver.playVideo();
+    victorySong.pause();
+    gameOverSong.play();
 });
 
 
